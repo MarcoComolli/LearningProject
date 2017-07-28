@@ -1,3 +1,99 @@
-body {
-    color: red;
+body{
+    padding:0px;
+    margin:0px;
+    font-family: sans-serif;
 }
+
+header{
+    height: 100px;
+    width: 100%;
+    background-color: rgb(0,0,90);
+}
+
+/* #film_logo_container{
+ width: 8vw;
+ height: 6vh;
+ margin: 1vh 0 0 1.6vw; 
+ background-image: url(images/film_icon.png);
+ background-size: contain;
+ display: inline-block;
+ background-repeat: no-repeat;
+ background-color: purple;
+} */
+
+
+#title{
+    color: white;
+    font-size: 34px;
+    display: inline-block;
+    padding-left: 2vw;
+    padding-top: 3vh;
+     padding-bottom: 2wh;  
+}
+
+footer{
+    background-color: rgb(0,0,90);
+    height: 70px;
+    color: rgb(200, 200, 200);
+    font-size: 10px;   
+}
+
+footer div{
+     text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);   
+}
+
+main{
+     background-color: #e7e7ff;
+    height: 600px;
+}
+
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding-left: 0;
+    background-color: rgb(0,0,90);
+}
+
+li.menu {
+    float: left;
+}
+
+li.menu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 1vh 2vw;
+    text-decoration: none;
+    font-size: 2vh;
+
+}
+
+li.menu a:hover {
+    background-color: rgb(0,0,130);
+}
+
+input[type=text] {
+    float:right;
+    width: 150px;
+    margin-right: 10px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 12px;
+    background-color: rgb(220, 230, 255);
+    background-image: url('images/search-icon.png');
+    background-position: 0;
+    background-size: 30px 30px; 
+    background-repeat: no-repeat;
+    padding: 8px 22px 8px 38px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 16%;
+}
+
