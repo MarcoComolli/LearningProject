@@ -1,35 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
     padding:0px;
     margin:0px;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 header{
-    height: 100px;
     width: 100%;
     background-color: rgb(0,0,90);
 }
 
-/* #film_logo_container{
- width: 8vw;
- height: 6vh;
- margin: 1vh 0 0 1.6vw; 
- background-image: url(images/film_icon.png);
- background-size: contain;
- display: inline-block;
- background-repeat: no-repeat;
- background-color: purple;
-} */
-
-
 #title{
+    display: flex;
     color: white;
-    font-size: 34px;
-    display: inline-block;
-    padding-left: 2vw;
-    padding-top: 3vh;
-     padding-bottom: 2wh;  
+    font-size: 1.6em;
 }
+
+header h1{
+    display: block;
+    margin-top: 6px;
+    margin-left: 18px;
+    margin-bottom: 6px;
+    
+}
+
+#logo{
+    height: 1.5em;
+    margin-left: 12px;
+    margin-top: 14px;
+}
+
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding-left: 0;
+    background-color: rgb(0,0,90); 
+    text-align: center;
+}
+
+li.menu {
+    float: left;
+}
+
+li.menu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 20px 40px;
+    text-decoration: none;
+
+}
+
+li.menu a:hover {
+    background-color: rgb(100,100,120);
+}
+
+
+li.search{
+    float: right;
+    padding: 12px 0;
+}
+
+
+
+input[type=text] {
+    width: 150px;
+    margin-right: 10px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 12px;
+    background-color: rgb(220, 230, 255);
+    background-image: url('images/search-icon.png');
+    background-position: 0;
+    background-size: 30px 30px; 
+    background-repeat: no-repeat;
+    padding: 10px 22px 10px 38px;
+    -webkit-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 210px;
+    background-image: none;
+    padding-left: 10px;
+}
+
+main{
+    background-color: #e7e7ff;
+    width: 100%;
+    overflow-x: auto;
+}
+
+#movies_list{
+    padding: 20px;
+}
+
+table{
+   border-collapse: collapse;
+   width: 80%;
+   margin: auto;
+
+}
+
+tr, td, th{
+    padding: 15px 20px; 
+}
+
+tr{
+     border: 1px solid rgba(0,0,150,0.2);
+}
+
+tr:nth-child(even){ 
+     background-color: rgb(220,220,255);
+}
+
+
+tr:hover{
+     background-color: rgb(200,200,255);
+}
+
+
+th{
+    background-color: rgb(0,0,130);
+    color: white;
+    font-weight: bold;
+}
+
+td{
+    text-align: center;
+}
+
 
 footer{
     background-color: rgb(0,0,90);
@@ -45,55 +151,51 @@ footer div{
     transform: translateY(-50%);   
 }
 
-main{
-     background-color: #e7e7ff;
-    height: 600px;
-}
-
-ul.menu {
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-    padding-left: 0;
-    background-color: rgb(0,0,90);
-}
-
-li.menu {
-    float: left;
-}
-
-li.menu a {
-    display: inline-block;
+@media screen and (max-width: 800px){
+    
+    #title{
+        display: block;
     color: white;
+    font-size: 1.0em;
     text-align: center;
-    padding: 1vh 2vw;
-    text-decoration: none;
-    font-size: 2vh;
-
 }
 
-li.menu a:hover {
-    background-color: rgb(0,0,130);
+    #logo{
+        display: none;
+    }
+
+    li.menu{
+        display: block;
+        margin: auto;
+    }
+
+    li.menu a {
+
+        padding: 10px 20px;
+    }
+
+    li.search{
+        display: block;
+        float: left;
+        padding: 20px;
+        width: 100%;
+    }
+
+    input[type=text] {
+        width: 100%;
+    }
+
+    input[type=text]:focus {
+        width: 100%;
+    }
+
+    th, td {
+        font-size: 70%;
+    }
+
+
+
+    
 }
 
-input[type=text] {
-    float:right;
-    width: 150px;
-    margin-right: 10px;
-    border: none;
-    box-sizing: border-box;
-    font-size: 12px;
-    background-color: rgb(220, 230, 255);
-    background-image: url('images/search-icon.png');
-    background-position: 0;
-    background-size: 30px 30px; 
-    background-repeat: no-repeat;
-    padding: 8px 22px 8px 38px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-input[type=text]:focus {
-    width: 16%;
-}
 
