@@ -72,11 +72,15 @@ li.search{
     padding: 12px 0;
 }
 
+img.expand{
+   height: 1.5em;
+}
+
 
 
 input[type=text] {
     width: 170px;
-    margin-right: 20px;
+    margin-right: 8px;
     border: none;
     box-sizing: border-box;
     font-size: 12px;
@@ -91,9 +95,19 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-    width: 220px;
+    width: 300px;
     background-image: none;
     padding-left: 10px;
+}
+
+#searchResult{
+    color: white;
+    display: inline-block;
+    padding: 7px;
+    margin-right: 8px;
+    border: 1px solid grey;
+    background-color: rgba(100,100,100,0.5);
+    font-size: 0.9em;
 }
 
 main{
@@ -120,10 +134,22 @@ tr{
      border: 1px solid rgba(0,0,150,0.2);
 }
 
-tr:nth-child(even){ 
-     background-color: rgb(220,220,255);
+th.asc::after{
+    content: " ▼";
+    font-size: 0.8em;
 }
 
+th.desc::after{
+    content: " ▲";
+    font-size: 0.8em;
+}
+
+
+
+tbody tr td:nth-last-child(2){
+    text-align: right;
+    padding-right: 30px;
+}
 
 tr:hover{
      background-color: rgb(200,200,255);
@@ -131,9 +157,14 @@ tr:hover{
 
 
 th{
-    background-color: rgb(0,0,130);
+    background-color: rgb(50,50,130);
     color: white;
     font-weight: bold;
+}
+
+th:hover{
+    cursor: pointer;
+    color: lightblue;
 }
 
 td{
@@ -155,14 +186,52 @@ footer div{
     transform: translateY(-50%);   
 }
 
-@media screen and (max-width: 800px){
-    
-    #title{
-        display: block;
-    color: white;
-    font-size: 1.1em;
-    text-align: center;
+tr.active{
+    background-color: rgb(200,200,255);
+    border-bottom: none;
 }
+tr.active + tr{
+    border-top: 1px solid rgb(170,170,220);
+}
+
+tr.selected, tr.selected:hover{
+    background-color: rgb(70,70,110);
+    color: rgb(200,200,255);
+    border: 1px solid rgb(170,170,220);
+}
+
+
+
+td.expanded {
+    border: none;
+    background-color: rgb(200,200,255);
+}
+
+#stats{
+    display: none;
+    position: fixed;
+    bottom: 5px;
+    right: 3px;
+    padding: 15px 25px;
+    background-color: rgba(40,40,80,0.9);
+    box-shadow: -5px 0px 15px black;
+    color: lightgray;
+    font-size: 0.8em;
+    line-height: 1.5em;
+}
+
+td.found{
+    background-color: rgba(200,200,0,0.3);
+}
+
+
+@media screen and (max-width: 800px) {
+    #title {
+        display: block;
+        color: white;
+        font-size: 1.1em;
+        text-align: center;
+    }
 
     #logo{
         display: none;
@@ -177,7 +246,6 @@ footer div{
     li.menu{
         display: inline-block;
         flex-grow: 1;
-
     }
 
     li.menu a {
@@ -205,16 +273,10 @@ footer div{
     }
 
     tr, td, th{
-    padding: 10px 14px; 
-}
+        padding: 10px 14px; 
+    }
 
     table{
-   width: 70%;
+        width: 70%;
+    }  
 }
-
-
-
-    
-}
-
-

@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+
     <title>Title of the webpage</title>
 </head>
-
 
 
 <body>
     <header>
         <div id="title">
-            <h1>MOVIE DATABASE</h1>
+            <h1 id="prova">MOVIE DATABASE</h1>
             <img id="logo" src="images/film_icon.png" alt="film_logo">
         </div>
 
@@ -26,160 +26,34 @@
             </li>
             <li class="search">
                 <form>
-                    <input type="text" name="search" placeholder="Search...">
+                    <input id="searchBar" type="text" name="search" placeholder="Search..." onkeydown="if (event.keyCode == 13) { onSubmitSearch(); return false;}">
+                    <div id="searchResult">0</div>
                 </form>
             </li>
         </ul>
     </header>
 
-
     <main>
         <div id="movies_list">
             <table id="movies_table">
-                <tr>
-                    <th>NAME</th>
-                    <th>DIRECTOR</th>
-                    <th>STUDIO</th>
-                    <th>YEAR</th>
-                    <th>GENRE</th>
-                    <th>REVENUE ($)</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>DIRECTOR</th>
+                        <th>STUDIO</th>
+                        <th>YEAR</th>
+                        <th>GENRE</th>
+                        <th>REVENUE ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-               
-
-                  <tr>
-                    <td>The Matrix</td>
-                    <td>The Wachowski Brothers</td>
-                    <td>Warner Bros.</td>
-                    <td>1999</td>
-                    <td>Sci-fi</td>
-                    <td>463,517,383</td>
-                </tr>
-
-                <tr>
-                    <td>Lethal Weapon 3</td>
-                    <td>Richard Donner</td>
-                    <td>Warner Bros.</td>
-                    <td>1992</td>
-                    <td>Action, Comedy</td>
-                    <td>321,731,527</td>
-                </tr>
-
-                <tr>
-                    <td>The Lion King</td>
-                    <td>Roger Allers,Rob Minkoff</td>
-                    <td>Disney </td>
-                    <td>1994</td>
-                    <td>Animation,Musical</td>
-                    <td>766,964,132</td>
-                </tr>
-
-                <tr>
-                    <td>Forrest Gump</td>
-                    <td>Robert Zemeckis</td>
-                    <td>Paramount</td>
-                    <td>1994</td>
-                    <td>Comedy,Drama</td>
-                    <td>677,387,716</td>
-                </tr>
-
-               <tr>
-                    <td>The Bodyguard</td>
-                    <td>Mick Jackson</td>
-                    <td>Warner Bros.</td>
-                    <td>1992</td>
-                    <td>Romantic,Thriller</td>
-                    <td>411,006,740</td>
-                </tr>
-
-                <tr>
-                    <td>Star Wars Episode I: The Phantom Menace</td>
-                    <td>George Lucas</td>
-                    <td>Fox </td>
-                    <td>1999</td>
-                    <td>Fantascience</td>
-                    <td>924,317,558</td>
-                </tr>
-
-
-
-                <tr>
-                    <td>Pretty Woman</td>
-                    <td>Garry Marshall</td>
-                    <td>Touchstone Pictures</td>
-                    <td>1990</td>
-                    <td>Romantic,Comedy</td>
-                    <td>463,406,268</td>
-                </tr>
-
-                <tr>
-                    <td>Top Gun</td>
-                    <td>Tony Scott</td>
-                    <td>Paramount</td>
-                    <td>1986</td>
-                    <td>Romantic,Action, Drama</td>
-                    <td>176,781,728</td>
-                </tr>
-
-                <tr>
-                    <td>Ghost</td>
-                    <td>Jerry Zucker</td>
-                    <td>Paramount Pictures</td>
-                    <td>1990</td>
-                    <td>Romantic,Fantasy,Thriller</td>
-                    <td>505,702,588</td>
-                </tr>
-
-
-                <tr>
-                    <td>The Lord of the Rings: The Two Towers</td>
-                    <td>Peter Jackson</td>
-                    <td>New Line Cinema</td>
-                    <td>2002</td>
-                    <td>Fantasy,Adventure</td>
-                    <td>926,047,111</td>
-                </tr>
- <tr>
-                    <td>Pirates of the Caribbean: Dead Man's Chest</td>
-                    <td>Gore Verbinski</td>
-                    <td>Disney </td>
-                    <td>2006</td>
-                    <td>Fantasy</td>
-                    <td>1,066,179,725</td>
-                </tr>
-
-                <tr>
-                    <td>Spider-Man</td>
-                    <td>Sam Raimi</td>
-                    <td>Columbia</td>
-                    <td>2002</td>
-                    <td>Superhero</td>
-                    <td>821,708,551</td>
-                </tr>
-
-                <tr>
-                    <td>The Da Vinci Code</td>
-                    <td>Ron Howard</td>
-                    <td>Columbia </td>
-                    <td>2006</td>
-                    <td>Thriller,Mystery</td>
-                    <td>758,239,851</td>
-                </tr>
-
-                  <tr>
-                    <td>Platoon</td>
-                    <td>Oliver Stone</td>
-                    <td>Orion Pictures</td>
-                    <td>1986</td>
-                    <td>War</td>
-                    <td>138,530,565</td>
-                </tr>
-
-               
-
+                </tbody>
             </table>
-
         </div>
+        <div id="stats">      
+        </div>
+
     </main>
 
     <footer>
@@ -187,5 +61,14 @@
     </footer>
 </body>
 
+<script src="scripts/film.js"></script>
+<script src="scripts/view_updater.js"></script>
+<script src="scripts/business_logic.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        generateMovieTable();
+    });
+</script>
 
 </html>
