@@ -6,7 +6,17 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="style.css" />
 
-    <title>Title of the webpage</title>
+    <title>Movie Database</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="scripts/film.js"></script>
+    <script src="scripts/info_display.js"></script>
+    <script src="scripts/displayed_films.js"></script>
+    <script src="scripts/view_updater.js"></script>
+    <script src="scripts/film_array.js"></script>
+    
+
+
 </head>
 
 
@@ -26,8 +36,7 @@
             </li>
             <li class="search">
                 <form>
-                    <input id="searchBar" type="text" name="search" placeholder="Search..." onkeydown="if (event.keyCode == 13) { onSubmitSearch(); return false;}">
-                    <div id="searchResult">0</div>
+                    <input id="searchBar" type="text" name="search" placeholder="Search..." onkeyup="onSubmitSearch();">
                 </form>
             </li>
         </ul>
@@ -51,7 +60,10 @@
                 </tbody>
             </table>
         </div>
-        <div id="stats">      
+        <div id="stats">
+            <div class="stats">Selected rows: <span class="statVal" id="statsSelected"></span></div>
+            <div class="stats">Average revenue: <span class="statVal" id="statsAvgRev"></span></div>
+            <div class="stats">Years: MIN: <span  class="statVal" id="statsMinYear"></span> MAX: <span class="statVal" id="statsMaxYear"></span> </div>      
         </div>
 
     </main>
@@ -61,14 +73,7 @@
     </footer>
 </body>
 
-<script src="scripts/film.js"></script>
-<script src="scripts/view_updater.js"></script>
-<script src="scripts/business_logic.js"></script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function (event) {
-        generateMovieTable();
-    });
-</script>
+
 
 </html>
