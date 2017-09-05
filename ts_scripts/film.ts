@@ -2,7 +2,7 @@ const FIELD_SIZE: number = 8;
 var idCounter: number = 0;
 
 export class Film {
-    [key: string] : any //number | string
+    [key: string] : any;//number | string
     id: number;
     name: string;
     studio: string;

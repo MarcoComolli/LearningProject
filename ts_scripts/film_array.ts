@@ -54,25 +54,25 @@ export class FilmArray {
     // }
 
 
-    public max(array :  any[]) {
+    public max<T>(array :  T[]) {
         return Math.max.apply(Math, array);
     }
 
-    public min(array : any[]) {
+    public min<T>(array : T[]) {
         return Math.min.apply(Math, array);
     }
 
-    public orderFilmsByField(arr : any[], field : string) {
-        arr.sort(this.propertySort(field));
+    public orderFilmsByField(arr : Film[], field : string) {
+        arr.sort(this.propertySort<Film>(field));
     }
 
-    public propertySort(property: string) {
+    public propertySort<T extends Film>(property: string) {
         let sortOrder: number = 1;
         if (property[0] === "-") {
             sortOrder = -1;
             property = property.substr(1);
         }
-        return function (a : any, b :  any) {
+        return function (a : T, b :  T) {
             let result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
             return result * sortOrder;
         }

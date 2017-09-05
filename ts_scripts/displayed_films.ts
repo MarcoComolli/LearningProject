@@ -80,23 +80,23 @@ export class DisplayedFilms {
     }
 
 
-    public propertySortDFilm(property: string) {
+    public propertySortDFilm<T extends Entry>(property: string) {
         let sortOrder: number = 1;
         if (property[0] === "-") {
             sortOrder = -1;
             property = property.substr(1);
         }
-        return function (a : any, b : any) {
+        return function (a : T, b : T) {
             let result: number = (a.film[property] < b.film[property]) ? -1 : (a.film[property] > b.film[property]) ? 1 : 0;
             return result * sortOrder;
         }
     }
 
-    public max(array : any[]) {
+    public max<T>(array : T[]) {
         return Math.max.apply(Math, array);
     }
 
-    public min(array : any[]) {
+    public min<T>(array : T[]) {
         return Math.min.apply(Math, array);
     }
 
